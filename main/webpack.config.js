@@ -1,12 +1,26 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { name } = require('./package');
 
+function getIPAdress() { // 获取本机主机名和ip
+  var interfaces = require('os').networkInterfaces();
+  for (var devName in interfaces) {
+    var iface = interfaces[devName];
+    for (var i = 0; i < iface.length; i++) {
+      var alias = iface[i];
+      if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+        return alias.address;
+      }
+    }
+  }
+}
+
 module.exports = {
   entry: process.env.MODE === 'multiple' ? './multiple.js' : './index.js',
   devtool: 'source-map',
   devServer: {
     open: true,
     port: '7099',
+    host: getIPAdress(),
     clientLogLevel: 'warning',
     disableHostCheck: true,
     compress: true,
