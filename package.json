@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "demo:start",
+    "start": "yarn run demo:start",
     "demo:install": "npm-run-all --serial install:*",
     "demo:start": "npm-run-all --parallel start:*",
     "install:main": "cd main && yarn",
