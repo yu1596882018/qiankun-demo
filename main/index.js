@@ -17,19 +17,20 @@ const loader = loading => render({ loading });
 /**
  * Step2 注册子应用
  */
+const isProduction = location.port === '80'
 
 registerMicroApps(
   [
     {
       name: 'vue',
-      entry: '//' + location.hostname + '/vue',
+      entry: '//' + location.hostname + (isProduction ? '/vue' : ':7101'),
       container: '#subapp-viewport',
       loader,
       activeRule: '/vue',
     },
     {
       name: 'angular9',
-      entry: '//' + location.hostname + '/angular9',
+      entry: '//' + location.hostname + (isProduction ? '/angular9' : ':7103'),
       container: '#subapp-viewport',
       loader,
       activeRule: '/angular9',
