@@ -22,14 +22,14 @@ registerMicroApps(
   [
     {
       name: 'vue',
-      entry: '//' + location.hostname + ':7101',
+      entry: '//' + location.hostname + '/vue',
       container: '#subapp-viewport',
       loader,
       activeRule: '/vue',
     },
     {
       name: 'angular9',
-      entry: '//' + location.hostname + ':7103',
+      entry: '//' + location.hostname + '/angular9',
       container: '#subapp-viewport',
       loader,
       activeRule: '/angular9',

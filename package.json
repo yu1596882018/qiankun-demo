@@ -7,12 +7,16 @@
     "start": "yarn run demo:start",
     "demo:install": "npm-run-all --serial install:*",
     "demo:start": "npm-run-all --parallel start:*",
+    "demo:build": "npm-run-all --parallel build:*",
     "install:main": "cd main && yarn",
     "start:main": "cd main && yarn start",
+    "build:main": "cd main && yarn run build",
     "install:vue": "cd vue && yarn",
     "start:vue": "cd vue && yarn start",
+    "build:vue": "cd vue && yarn run build",
     "install:angular9": "cd angular9 && yarn",
-    "start:angular9": "cd angular9 && yarn serve:qiankun"
+    "start:angular9": "cd angular9 && yarn run serve:qiankun",
+    "build:angular9": "cd angular9 && yarn run build:qiankun"
   },
   "keywords": [],
   "author": "",
