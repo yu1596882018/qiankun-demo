@@ -17,7 +17,7 @@ const loader = loading => render({ loading });
 /**
  * Step2 注册子应用
  */
-const isProduction = location.port === '80'
+const isProduction = location.port === '' || location.port === '80'
 
 registerMicroApps(
   [
