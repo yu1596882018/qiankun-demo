@@ -37,7 +37,7 @@ https://qiankun.umijs.org/zh
 ## demo地址
 + 代码地址：https://github.com/yu1596882018/qiankun-demo.git
 + 访问地址
-    + 主应用：http://39.108.161.237/app-angular/
+    + 主应用：http://39.108.161.237
     + vue子应用：http://39.108.161.237/child/vue-history/
     + angular子应用：http://39.108.161.237/child/angular-history/
 
