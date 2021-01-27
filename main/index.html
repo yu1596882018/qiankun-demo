@@ -7,25 +7,31 @@
 </head>
 
 <body>
-  <div class="mainapp">
-    <!-- 标题栏 -->
-    <header class="mainapp-header">
-      <h1>QianKun</h1>
-    </header>
-    <div class="mainapp-main">
-      <!-- 侧边栏 -->
-      <ul class="mainapp-sidemenu">
-        <li onclick="push('/app-vue')">Vue</li>
-        <li onclick="push('/app-angular')">Angular9</li>
-      </ul>
-      <!-- 子应用  -->
-      <main id="subapp-container"></main>
-    </div>
-  </div>
+<div class="mainapp">
+  <!-- 标题栏 -->
+  <header class="mainapp-header">
+    <h1>QianKun</h1>
+  </header>
+  <h2 style="padding-top: 20px;border-top: 1px solid #ccc;">下面是引入单个vue组件，以微应用的形式加载</h2>
+  <div id="componentContainer"></div>
 
-  <script>
-    function push(subapp) { history.pushState(null, subapp, subapp) }
-  </script>
+  <h2 style="padding-top: 20px;border-top: 1px solid #ccc;">下面是引入整个功能模块，以微应用的形式加载</h2>
+  <div class="mainapp-main">
+    <!-- 侧边栏 -->
+    <ul class="mainapp-sidemenu">
+      <li onclick="push('/app-vue')">Vue</li>
+      <li onclick="push('/app-angular')">Angular9</li>
+    </ul>
+    <!-- 子应用  -->
+    <main id="subapp-container"></main>
+  </div>
+</div>
+
+<script>
+function push(subapp) {
+  history.pushState(null, subapp, subapp)
+}
+</script>
 </body>
 
 </html>

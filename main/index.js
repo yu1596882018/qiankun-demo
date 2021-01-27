@@ -1,12 +1,34 @@
 import './polyfill';
 import 'zone.js'; // for angular subapp
-import { registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start, initGlobalState } from 'qiankun';
+import {
+  registerMicroApps,
+  runAfterFirstMounted,
+  setDefaultMountApp,
+  start,
+  initGlobalState,
+  loadMicroApp
+} from 'qiankun';
 import './index.less';
 
+loadMicroApp(
+  {
+    name: 'app1',
+    entry: `${isProduction ? '' : '//' + location.hostname + ':7101'}/child/vue-history/`,
+    container: '#componentContainer',
+    props: {
+      isComponentContainer: true, componentName: 'HelloWorld', componentOptions: {
+        propsData: {
+          msg: '这是一个HelloWorld的vue组件'
+        }
+      }
+    }
+  },
+);
 /**
  * 主应用 **可以使用任意技术栈**
  */
 import render from './render/VueRender';
+
 
 /**
  * Step1 初始化应用（可选）
