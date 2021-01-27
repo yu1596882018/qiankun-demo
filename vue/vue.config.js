@@ -7,6 +7,7 @@ function resolve(dir) {
 
 const port = 7101; // dev port
 const NODE_ENV = process.env.NODE_ENV
+const publicPath = NODE_ENV === "production" ? 'http://39.108.161.237/child/vue-history/' : `http://localhost:${port}/child/vue-history/`;
 
 module.exports = {
   /**
@@ -48,5 +49,34 @@ module.exports = {
       libraryTarget: 'umd',
       jsonpFunction: `webpackJsonp_${name}`,
     },
+  },
+  chainWebpack: (config) => {
+    config.module.rule('fonts')
+      .use('url-loader')
+      .loader('url-loader')
+      .options({
+        limit: 4096, // 小于4kb将会被打包成 base64
+        fallback: {
+          loader: 'file-loader',
+          options: {
+            name: 'static/fonts/[name].[hash:8].[ext]',
+            publicPath
+          }
+        }
+      })
+      .end();
+    config.module.rule('images')
+      .use('url-loader')
+      .loader('url-loader')
+      .options({
+        limit: 4096, // 小于4kb将会被打包成 base64
+        fallback: {
+          loader: 'file-loader',
+          options: {
+            name: 'static/img/[name].[hash:8].[ext]',
+            publicPath
+          }
+        }
+      })
   },
 };
