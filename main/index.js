@@ -10,6 +10,8 @@ import {
 } from 'qiankun';
 import './index.less';
 
+const isProduction = location.port === '' || location.port === '80'
+
 loadMicroApp(
   {
     name: 'app1',
@@ -40,8 +42,6 @@ const loader = loading => render({ loading });
 /**
  * Step2 注册子应用
  */
-const isProduction = location.port === '' || location.port === '80'
-
 registerMicroApps(
   [
     {
