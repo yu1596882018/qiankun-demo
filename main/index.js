@@ -22,11 +22,11 @@ const isProduction = location.port === '80'
 registerMicroApps(
   [
     {
-      name: 'vue',
-      entry: '//' + location.hostname + (isProduction ? '/vue' : ':7101'),
+      name: 'app-vue',
+      entry: `${isProduction ? '' : '//' + location.hostname + ':7101'}/child/vue-history/`,
       container: '#subapp-viewport',
       loader,
-      activeRule: '/vue',
+      activeRule: '/app-vue',
     },
     {
       name: 'angular9',
@@ -71,7 +71,7 @@ setGlobalState({
 /**
  * Step3 设置默认进入的子应用
  */
-setDefaultMountApp('/vue');
+setDefaultMountApp('/app-vue');
 
 /**
  * Step4 启动应用

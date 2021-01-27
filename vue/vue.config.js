@@ -16,7 +16,7 @@ module.exports = {
    * In most cases please use '/' !!!
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
-  publicPath: NODE_ENV === 'development' ? '/' : '/vue/',
+  publicPath: '/child/vue-history/',
   outputDir: 'dist',
   assetsDir: 'static',
   filenameHashing: true,
