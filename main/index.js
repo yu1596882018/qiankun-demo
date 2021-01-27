@@ -30,11 +30,11 @@ registerMicroApps(
       activeRule: '/app-vue',
     },
     {
-      name: 'angular9',
-      entry: '//' + location.hostname + (isProduction ? '/angular9' : ':7103'),
+      name: 'app-angular',
+      entry: `${isProduction ? '' : '//' + location.hostname + ':7103'}/child/angular-history/`,
       container: '#subapp-viewport',
       loader,
-      activeRule: '/angular9',
+      activeRule: '/app-angular',
     },
   ],
   {
