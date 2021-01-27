@@ -35,6 +35,7 @@ yarn run start
 https://qiankun.umijs.org/zh
 
 ## demo地址
+
 + 代码地址：https://github.com/yu1596882018/qiankun-demo.git
 + 访问地址
     + 主应用：http://39.108.161.237
@@ -51,3 +52,29 @@ https://qiankun.umijs.org/zh
 - ⚡️ **资源预加载**，在浏览器空闲时间预加载未打开的微应用资源，加速微应用打开速度。
 - 🔌 **umi 插件**，提供了 [@umijs/plugin-qiankun](https://github.com/umijs/plugins/tree/master/packages/plugin-qiankun) 供 umi
   应用一键切换成微前端架构系统。
+
+## nginx参考配置
+
+```
+server {
+  listen       80;
+  server_name  39.108.161.237;
+  location / {
+    root   /root/qiankun-demo/main/dist;
+    index  index.html index.htm;
+    try_files $uri $uri/ /index.html;
+  }
+
+  location /child/vue-history {
+    alias  /root/qiankun-demo/vue/dist/;	
+    index  index.html index.htm;
+    try_files $uri $uri/ /index.html;
+  }
+
+  location /child/angular-history {
+    alias  /root/qiankun-demo/angular9/dist/angular9/;	
+    index  index.html index.htm;
+    try_files $uri $uri/ /index.html;
+  }
+}
+```
