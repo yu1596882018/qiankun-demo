@@ -24,5 +24,5 @@ export class ComponentService {
   // entryComponents: [HelloWorldComponent],
   bootstrap: [ContainerComponent],
 })
-export class AppModule {
+export class ComponentModule {
 }

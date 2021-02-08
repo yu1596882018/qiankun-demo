@@ -26,6 +26,22 @@ loadMicroApp(
     }
   },
 );
+
+loadMicroApp(
+  {
+    name: 'app2',
+    entry: `${isProduction ? '' : '//' + location.hostname + ':7103'}/child/angular-history/`,
+    container: '#componentContainerNg',
+    props: {
+      isComponentContainer: true, componentName: 'HelloWorld', componentOptions: {
+        propsData: {
+          msg: '这是一个HelloWorld的vue组件'
+        }
+      }
+    }
+  },
+);
+
 /**
  * 主应用 **可以使用任意技术栈**
  */
@@ -35,9 +51,9 @@ import render from './render/VueRender';
 /**
  * Step1 初始化应用（可选）
  */
-render({ loading: true });
+render({loading: true});
 
-const loader = loading => render({ loading });
+const loader = loading => render({loading});
 
 /**
  * Step2 注册子应用
@@ -78,7 +94,7 @@ registerMicroApps(
   },
 );
 
-const { onGlobalStateChange, setGlobalState } = initGlobalState({
+const {onGlobalStateChange, setGlobalState} = initGlobalState({
   user: 'qiankun',
 });
 

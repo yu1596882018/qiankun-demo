@@ -5,7 +5,7 @@ import {HelloWorldComponent} from './hello-world.component';
 import {ComponentService} from './component.module';
 
 @Component({
-  selector: 'app-root',
+  selector: 'container-component',
   template: `
     <ng-template isComponent></ng-template>
   `
